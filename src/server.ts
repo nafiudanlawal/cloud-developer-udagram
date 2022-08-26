@@ -22,9 +22,8 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
 			res.status(422).send("image_url query param is required.");
 		}
 
-		image_url = String(image_url);
 		try {
-			const filteredImage = await filterImageFromURL(image_url);
+			const filteredImage = await filterImageFromURL(String(image_url));
 			res.status(200).sendFile(String(filteredImage), (err) => {
 				if (err) {
 					console.log('Failed to send image:', filteredImage)
@@ -32,7 +31,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
 				} else {
 					console.log('Sent image:', filteredImage)
 				}
-				deleteLocalFiles([String(filteredImage)]);
+				deleteLocalFiles([filteredImage]);
 			});
 		} catch (err) {
 			console.log(err);
