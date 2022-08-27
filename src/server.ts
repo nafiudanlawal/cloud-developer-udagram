@@ -19,7 +19,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
 		const image_url: string = req.query.image_url;
 
 		if (!image_url) {
-			res.status(422).send("image_url query param is required.");
+			return res.status(422).send("image_url query param is required.");
 		}
 
 		try {
