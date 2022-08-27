@@ -27,8 +27,10 @@ We've included a few helper functions to handle some of these concepts and we're
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
 ```
 
-###Deployment Endpoint
+## Submission Notes
 [(Deployed URL](http://udagram-dev2.us-east-1.elasticbeanstalk.com/)
+[Git Repo](https://github.com/nafiudanlawal/cloud-developer-udagram)
+[All Notes](https://docs.google.com/document/d/1zV5AOfrk43t8THczMEwApMHDrZWarHvsy6Gw_wfjnFU/edit#)
 
 ### Deploying your system
 

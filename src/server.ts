@@ -16,15 +16,15 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
 	// @TODO1 IMPLEMENT A RESTFUL ENDPOINT
 	// GET /filteredimage?image_url={{URL}}
 	app.get("/filteredimage", async (req, res) => {
-		let { image_url } = req.query;
+		const image_url: string = req.query.image_url;
 
 		if (!image_url) {
 			res.status(422).send("image_url query param is required.");
 		}
 
 		try {
-			const filteredImage = await filterImageFromURL(String(image_url));
-			res.status(200).sendFile(String(filteredImage), (err) => {
+			const filteredImage: string = await filterImageFromURL(image_url);
+			res.status(200).sendFile((filteredImage), (err) => {
 				if (err) {
 					console.log('Failed to send image:', filteredImage)
 					res.status(422).send("Failed to return requested image.");
