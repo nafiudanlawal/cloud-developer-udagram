@@ -16,7 +16,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
 	// @TODO1 IMPLEMENT A RESTFUL ENDPOINT
 	// GET /filteredimage?image_url={{URL}}
 	app.get("/filteredimage", async (req, res) => {
-		const image_url: string = req.query.image_url;
+		const image_url: string | null = <string>req.query.image_url;
 
 		if (!image_url) {
 			return res.status(422).send("image_url query param is required.");
